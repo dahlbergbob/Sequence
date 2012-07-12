@@ -7,8 +7,6 @@ package com.boblu.sequence
 {
 	import com.boblu.sequence.mock.DelegateExtender;
 	import com.boblu.sequense.Delegate;
-	import com.boblu.sequense.IDelegate;
-	import com.boblu.sequense.Sequence;
 
 	import org.hamcrest.assertThat;
 	import org.hamcrest.object.equalTo;

@@ -1,7 +1,19 @@
-/**
- * User: Bob Dahlberg
- * Date: 2012-06-21
- * Time: 08:56
+/*
+ * Sequence 1.0
+ * Copyright (C) 2012 Bob Dahlberg
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 package com.boblu.sequense
 {
@@ -31,7 +43,7 @@ package com.boblu.sequense
 		}
 
 		/**
-		 * Tell the IDelegate to send a reference to itself when calling its function
+		 * Tell the Delegate to send a reference to itself when calling its function
 		 */
 		public function set useReference( value:Boolean ):void
 		{
@@ -60,7 +72,7 @@ package com.boblu.sequense
 		}
 
 		/**
-		 * Holds the IDelegate from executing further and from reporting that its done.
+		 * Holds the Delegate from executing further and from reporting that its done.
 		 */
 		public function hold():void
 		{
@@ -68,7 +80,7 @@ package com.boblu.sequense
 		}
 
 		/**
-		 * Releases an held IDelegate to make it resume its agenda.
+		 * Releases an held Delegate to make it resume its agenda.
 		 */
 		public function release():void
 		{

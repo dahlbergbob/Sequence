@@ -1,0 +1,6 @@
+Sequence Copyright (C) 2012 Bob Dahlberg
+
+This program comes with ABSOLUTELY NO WARRANTY; for details see http://www.gnu.org/licenses (GNU GPLv3)
+This is free software, and you are welcome to redistribute it under certain conditions.
+
+Sequence is a simple task handler that will keep your function calls/tasks in order. It allows you to setup predefined sequences of concurrent or sequentail tasks, nest sequencens/tasks/function calls or add extra tasks to the sequences adhoc as it runs.

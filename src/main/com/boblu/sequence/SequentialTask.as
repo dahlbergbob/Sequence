@@ -15,10 +15,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package com.boblu.sequense
+package com.boblu.sequence
 {
-	public interface ISequentialTask
+	public class SequentialTask extends Task implements ISequentialTask
 	{
-		function set sequence( value:ISequence ):void;
+		protected var _sequence:ISequence;
+		
+		public function set sequence( value:ISequence ):void
+		{
+			_sequence = value;
+		}
+
+
+		override public function clean():void
+		{
+			super.clean();
+			_sequence = null;
+		}
 	}
 }

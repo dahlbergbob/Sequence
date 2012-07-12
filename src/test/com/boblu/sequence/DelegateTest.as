@@ -6,7 +6,7 @@
 package com.boblu.sequence
 {
 	import com.boblu.sequence.mock.DelegateExtender;
-	import com.boblu.sequense.Delegate;
+	import com.boblu.sequence.Delegate;
 
 	import org.hamcrest.assertThat;
 	import org.hamcrest.object.equalTo;
@@ -106,39 +106,6 @@ package com.boblu.sequence
 			_call.execute();
 			assertThat( _called, equalTo( true ) );
 		}
-
-		[Test(description="Test holding a call")]
-		public function testHoldingACall():void
-		{
-			_call = new DelegateExtender( holder );
-			_call.useReference = true;
-			DelegateExtender( _call ).onComplete = holderCalled;
-			_call.execute();
-			
-			assertThat( _called, equalTo( true ) );
-			assertThat( DelegateExtender( _call ).onHold, equalTo( true ) );
-			_called = false;
-			assertThat( _called, equalTo( false ) );
-			_call.release();
-			assertThat( DelegateExtender( _call ).onHold, equalTo( false ) );
-			assertThat( _called, equalTo( true ) );
-		}
-		
-		private function holder( reference:Delegate ):void
-		{
-			reference.hold();
-			_called = true;
-		}
-
-		private function holderCalled():void
-		{
-			_called = true;
-		}
-		
-		
-		
-		
-		
 
 
 		private function callWithout():void

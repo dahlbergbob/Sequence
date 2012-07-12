@@ -5,7 +5,7 @@
  */
 package com.boblu.sequence.mock
 {
-	import com.boblu.sequense.SequentialTask;
+	import com.boblu.sequence.SequentialTask;
 
 	public class MockHoldTask extends SequentialTask
 	{

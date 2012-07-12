@@ -10,8 +10,8 @@ package com.boblu.sequence
 	import com.boblu.sequence.mock.MockSequence;
 	import com.boblu.sequence.mock.MockTask;
 	import com.boblu.sequence.mock.MockTaskAddExtra;
-	import com.boblu.sequense.ISequence;
-	import com.boblu.sequense.Sequence;
+	import com.boblu.sequence.ISequence;
+	import com.boblu.sequence.Sequence;
 
 	import org.hamcrest.assertThat;
 	import org.hamcrest.core.not;

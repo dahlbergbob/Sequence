@@ -9,7 +9,7 @@
 	<taskdef resource="flexUnitTasks.tasks" classpath="${flexunit.task}" />
 	
 	<target name="help">
-		<echo level="info"><![CDATA[Notifier application build file
+		<echo level="info"><![CDATA[Sequence application build file
 available targets:
  help 		(shows this help message)
  test 		(runs the unit tests)
@@ -25,7 +25,7 @@ available targets:
 		<buildnumber file="${buildnumber}" />
 		<input message="Set the current version (skip to use current):" defaultvalue="${build.version}" addproperty="version" />
 		<replaceregexp file="${buildnumber}" match="build.version=(.*)" replace="build.version=${version}" />
-		<echo message="Building Crib v${version}, buildnumber: ${build.number}" />
+		<echo message="Building Sequence v${version}, buildnumber: ${build.number}" />
 		<compile-swc debug="false" />
 		<compile-swc debug="true" extra="-debug" />
 		<echo message="All swc's compiled successfully" />
@@ -37,7 +37,7 @@ available targets:
 		<attribute name="debug" default="true" />
 		<attribute name="extra" default="" />
 		<sequential>
-			<echo message="Compile Crib Library" />
+			<echo message="Compile Sequence Library" />
 			<compc output="${code.out}/${buildname}.swc" target-player="${player.version}" incremental="false">
 				<source-path path-element="${main.src}" />
 				<include-sources dir="${main.src}/com/boblu/sequence" includes="**/*.as" />
@@ -73,15 +73,15 @@ available targets:
 	
 	
 	<!-- EXAMPLE BUILDING -->
-	<target name="example-debug" description="Build Crib Example (debug)">
-		<mxmlc output="${code.out}/example/crib-example-debug.swf" file="${main.src}/Main.as" debug="true" target-player="${player.version}" static-link-runtime-shared-libraries="true">
+	<target name="example-debug" description="Build Sequence Example (debug)">
+		<mxmlc output="${code.out}/example/sequence-example-debug.swf" file="${main.src}/Main.as" debug="true" target-player="${player.version}" static-link-runtime-shared-libraries="true">
 			<source-path path-element="${main.src}" />
 			<define name="CONFIG::debug" value="true"/>
 		</mxmlc>
 	</target>
 
-	<target name="example-release" description="Build Crib Example (release)">
-		<mxmlc output="${code.out}/example/crib-example-release.swf" file="${main.src}/Main.as" debug="false" target-player="${player.version}" static-link-runtime-shared-libraries="true">
+	<target name="example-release" description="Build Sequence Example (release)">
+		<mxmlc output="${code.out}/example/sequence-example-release.swf" file="${main.src}/Main.as" debug="false" target-player="${player.version}" static-link-runtime-shared-libraries="true">
 			<source-path path-element="${main.src}" />
 			<define name="CONFIG::debug" value="false"/>
 		</mxmlc>
@@ -93,7 +93,7 @@ available targets:
 		<delete dir="${ci.base}" />	
 	</target>
 	
-	<target name="-test-compile" description="Build keyboard mapper lib">
+	<target name="-test-compile" description="Compile tests">
 		<mxmlc output="${unittest.output}" file="${basedir}/src/test/Test.as" debug="true" target-player="${player.version}" static-link-runtime-shared-libraries="true">
 			<source-path path-element="${basedir}/src/main" />
 			<source-path path-element="${basedir}/src/test" />

@@ -15,36 +15,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package com.boblu.sequense
+package com.boblu.sequence
 {
-	public class SimpleCall extends Delegate
+	public class Task implements ITask
 	{
-		protected var _onComplete:Function;
-
-		/**
-		 * Creates a new Delegate to a function with any number of parameters with a callback when it's done
-		 * @param to			The function to call
-		 * @param parameters	An array of parameters to send to the function
-		 */
-		public function SimpleCall( to:Function, parameters:Array = null )
+		public function execute():void
 		{
-			super( to, parameters );
 		}
 
-		/**
-		 * @inheritDoc
-		 */
-		override protected function done():void
+		public function clean():void
 		{
-			super.done();
-
-			if( _onComplete != null )
-				_onComplete();
 		}
-
-		/**
-		 * Set a callback for when the Delegate is done and is not on hold
-		 */
-		public function set onComplete( value:Function ):void	{	_onComplete = value;	}
 	}
 }

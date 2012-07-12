@@ -5,7 +5,7 @@
  */
 package com.boblu.sequence.mock
 {
-	import com.boblu.sequense.*;
+	import com.boblu.sequence.*;
 	public class MockSequence extends Sequence
 	{
 		public function MockSequence()

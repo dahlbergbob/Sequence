@@ -209,7 +209,7 @@ package com.boblu.sequence
 			assertThat( sequence2.isCleaned(), equalTo( true ) );
 		}
 
-		[Test(description="Test a sequential task adding a new task to it's parent sequenct")]
+		[Test(description="Test a sequential task adding a new task to it's parent sequence")]
 		public function testInjectIntoParentSequence():void
 		{
 			_sequence.addTask( new MockTask( "a", _result ) );
@@ -217,6 +217,29 @@ package com.boblu.sequence
 			_sequence.addTask( new MockTask( "b", _result ) );
 			_sequence.execute();
 			assertThat( _result.toString(), equalTo( "a,b,1" ) );
+		}
+
+		[Test(description="Test a several holds on concurrent tasks.")]
+		public function testMultipleHolds():void
+		{
+			var holdTask1:MockHoldTask = new MockHoldTask();
+			var holdTask2:MockHoldTask = new MockHoldTask();
+			var holdTask3:MockHoldTask = new MockHoldTask();
+
+			_sequence.addTask( new MockTask( "a", _result ) );
+			_sequence.addTask( holdTask1 );
+			_sequence.addTask( holdTask2, true );
+			_sequence.addTask( holdTask3, true );
+			_sequence.addTask( new MockTask( "b", _result ) );
+			_sequence.execute();
+			
+			assertThat( _result.toString(), equalTo( "a" ) );
+			holdTask1.releaseMock();
+			assertThat( _result.toString(), equalTo( "a" ) );
+			holdTask2.releaseMock();
+			assertThat( _result.toString(), equalTo( "a" ) );
+			holdTask3.releaseMock();
+			assertThat( _result.toString(), equalTo( "a,b" ) );
 		}
 	}
 }
